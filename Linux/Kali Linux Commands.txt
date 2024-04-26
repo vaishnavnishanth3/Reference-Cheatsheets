@@ -1,0 +1,133 @@
+Kali:
+
+sudo --> Super User Do
+sudo su --> super user do super user(make me a super user)
+exit --> exit root prompt
+
+ip a --> get ip address of kali
+passwd --> to change the password
+sudo adduser (username) --> to add a new user
+sudo adduser (username) sudo --> to give sudo previleges to the user (username)
+
+sudo dpkg-reconfigure openssh-server --> SSH2 Installation
+cntrl + shift + =(+) --> zoom terminal
+in terminal --> option--> profile --> + --> name --> color change --> close --> new tab down arrow --> profile name.
+
+ping (websitename) --> ip details of the website.
+nc --> net cat tool
+nc (ip) (portnumber) --> to gain access to the hack host
+whoami --> to know the user (root) or (others)
+hostname --> to get the name of the user
+ifconfig --> ip details for the user
+
+Shortcuts for certain commands:
+cntrl + c --> kill command (stop command)
+cntrl + z --> suspend command (continue but on the background)
+fg (n)--> foreground job [number] (to get the command on the foreground using the suspended number)
+clear --> clearscreen
+exit --> exit terminal
+tab --> autocomplete
+double tap tab --> to suggest similar commands
+shift pageup --> scroll up
+shift pagedown --> scroll down
+uparrow --> previous commands
+history --> see commands run in the past
+cntrl + r --> search command history
+cntrl + a --> Move cursor to begginning
+cntrl + e --> move cursor to end
+cntrl + k --> kill (cut) from where the cursor is.
+cntrl + y --> yank (paste)
+cntrl + l --> clear
+
+
+pwd --> print working directory
+cd --> change directory
+mkdir --> make or create driectory
+touch --> create file
+ls --> list directory content
+cat --> concatenate and display files
+less --> shoW file content
+head - [n] --> Default displace the first 10 lines of the files 
+tail - [n] --> default displays the last 10 lines
+tail - [f] --> follow the end of a changing file
+cp --> copy file
+mv --> move or rename file
+rm & rmdir --> remove file or directory
+cd .. --> one level up
+cd  --> home(root)
+cd ` --> home(root) 
+mkdir testdir --> create directory testdir
+mkdir -p /test/dir1/dir2
+touch testfile --> create file	
+
+ls -l --> long listing
+ls -a --> hidden files
+ls -r --> list in reverse name
+ls -t --> list new files first
+ls -rt --> list in reverse time (older First)
+
+cp (files) [destination] --> copy files
+cp -r --> copy recursively (if you want to copy dirs)
+cp -i --> copy interactively
+cp /root/file . -- copy files to current directory
+
+mv [source] [desination] --> move/rename
+mv -i --> move interactively
+mv /root/file . --> moves file to current directory
+
+rm /tmp/testfile --> remove file
+rmdir /tmp/testdir --> remove empty testdir
+rm -r /tmp/testdir --> remove testdir and content
+rm -r -i /tmp/testdir --> interactive
+rm -rf /tmp/testdir --> force remove
+
+apt - stands for advanced packaging tools
+apt-cache search --> search for package
+apt-cache show --> Show information about package
+apt-get install --> install package
+apt-get install -y --> to answer yes to all questions
+apt-get remove --> remove package
+apt-get purge --> remove package and configs
+apt-get update --> to get updates
+apt-get upgrade --> to install updates
+apt-get dist-upgrade --> to install also the dependencies
+
+ARCHIVES:
+tar c --> create archive
+tar r --> append to archive
+tar t --> list contents of archive
+tar x --> extrace archive
+tar v --> verbose
+tar f file --> file to use
+
+COMPRESSION:
+gzip --> classical compression in linux
+bzip2 --> more compression than zip but more time to compress
+
+d --> decompress file
+
+tar cvf(create verbose filename) archive.tar file1 file2 file3 dir1 dir2 --> create tar from files
+tar tvf archive.tar --> list contents of archive
+tar rvf archive.tar filename/directoryname --> add file or dir to archive
+
+tar xvf archive.tar --> extract complete archive
+tar xvf archive.tar file3 --> to extract a single file
+tar xvf archive.tar dir1/subdir1 --> to extract a directory
+tar xvf archive.tar -c /tmp/extracted --> extract in a different directory.
+
+tar zcvf compressed.tar.gz file1 file2 --> compress gzip
+tar jcvf compressed.tar.bz2 file1 file2 --> compress bzip2
+
+tar ztvf compressed.tar.gz --> list compressed gz
+tar jtvf compressed.tar.bz2 --> list compressed bz2
+
+tar zxvf compressed.tar.gz --> extract compressed gz
+tar jxvf compressed.tar.bz2 --> extract compressed bz2
+
+Wildcards:
+Used for pattern matching;
+* --> to match zeros and all the characters
+? --> matches exactly one character
+[] --> matches any of the characters enclosed in the brackets
+\ --> escape character
+

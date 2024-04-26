@@ -1,0 +1,92 @@
+Basic:
+cls --> sclear screen
+cd .. --> back
+cd \file--> change directory to file
+dir --> directory
+
+File handling:
+mkdir --> make directory(Create folder)
+type nul> new.pptx --> creates a new file.pptx
+ren prev_name newname --> change name from prev_name to new_name
+del file --> delete file
+rmdir --> delete folder
+copy file_name prev_location new_location --> copy file
+move file_name prev_location new_location --> move file
+
+Managing Task and Services:
+tasklist --> shows task manager
+taskkill /PID 7100 --> terminate the task from list
+
+Network Info:
+net start --> network services in windows are started
+net stop Service_name --> to stop a service
+net start Service_name --> to (re)start a service
+driverquery --> to get info about the drivers
+
+System Info:
+wmic --> windows info
+/output:c:\filename.txt product get name, version --> To extract info about the products and services in windows
+cpu --> To get info about cpu
+
+diskpart --> to get info about disk
+list disk --> to get the list of disk
+select disk 0 --> to select the disk
+detail disk to get details about the selected disk
+exit --> exit diskpart
+
+chkdsk --> to find issues in pc
+getmac --> get physical(mac) adress
+systeminfo --> to get complete system info
+
+User account:
+net user --> all users in pc
+net user username /add password --> to add a new user in the pc
+net user /del username --> to delete an existing user
+net user username /active:yes --> to enable the user in pc
+net user "username"* --> to use the user username in pc
+
+Hiding and encrypting files using cmd:
+go to the directory and set attribute to hidden and read only
+attrib +H +R +S --> To hide, Read-only mode of the files
+attrib -H -R -S --> to restore the default attributes.
+attrib +H +R +S --> set attributes to hiddena dn read only
+cipher /e --> encrypt file
+cipher /d --> decrypt file
+cipher /rekey --> to update the encryption key for an encrypted file
+assoc.(ext) --> to know what is the extension of the file
+taskkill > filename.txt --> to export in a text file
+echo file_message filename.ext --> to create a file filename of ext extension and to write the message file_message
+copy con filename.ext --> (allows editing) and ctrl+z (exit editor mode)
+type filename.ext --> content of the file in command prompt
+filename.ext --> to open the file in corresponding software.
+
+Format, Boot or Label USB or CD:
+diskpart --> to enter accessing disk info
+list disk --> displays the discs of the pc
+select disk diskname --> the use disk diskname 
+clean --> to clean the disk
+create (partition/volume/vdisk) primary --> to create a specified partition
+select partition 1 --> to select the partition
+format fs=ntfs quick --> to format the partition
+activate --> to activate the specific drive
+assign --> to assign the drive etter or mount point
+exit --> exit from disk
+label diskname(c-f): --> to enter a name/label --> Enter the name of the label
+
+Other Commands:
+date --> to change the date
+time --> to change time
+doskey/history --> to list the history of commands in the command line
+shutdown /s(-s) /t(-t) 00--> to shutdown immediately
+shutdown /s(-s) /t(-t) time --> to shutdown the system at a specific time
+restart /r(-r) /t(-t) time --> to restart
+
+chkntfs (diskname): --> to check the disk
+control --> to open control panel
+schtasks --> to view all the schedule tasks
+ver --> to get the version
+openfiles --> to provide the info about the users using a specific file
+
+IPconfig:
+ipconfig --> to get network wifi/ethernet details
+ipconfig /all --> to get the network info of all the wifi

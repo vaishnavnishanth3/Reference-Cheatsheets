@@ -1,0 +1,8 @@
+https://www.appbrewery.co/p/web-development-course-resources
+w3schools
+html
+css bootstrap, tailwind
+javascript vannilla, jQuery, 
+NodeJs nodemon, ExpressJs, 
+Backend Postman
+nodejs package manager docs

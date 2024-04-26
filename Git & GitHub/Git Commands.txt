@@ -1,0 +1,15 @@
+git init -> initialize git
+git status -> files in staging area
+git add (fileName) -> to add file to staging area.
+git add . -> to add all the files to the staging area.
+git commit -m "Message" -> to identify the message along with new commit
+git log -> to get all the logs
+git diff (fileName) -> to see the modification of a file from the previous commit staged.
+git checkout (fileName)-> to return the previous version of the commit to original directory.
+git remote add (remoteName) ->  to create a remote to add in the repository
+git push -u (remoteName) (branchName) -> to push from local repository to github repository
+git rm --cached -r . -> to remove all from staging area.
+git clone (url of repository for the code to be copied) ->
+git branch (branchName) -> to create a new branch
+git branch -> to see all the branches
+git checkout (branchName) -> to switch to the new branch
