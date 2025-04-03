@@ -1,0 +1,3 @@
+npm Error:
+
+PowerShell -> run as Administrator -> Set-ExecutionPolicy RemoteSigned
