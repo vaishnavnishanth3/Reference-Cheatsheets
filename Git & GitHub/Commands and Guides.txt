@@ -1,0 +1,337 @@
+
+Unix commands:
+ls - list files in the current directory
+ls -al - list all files including hidden ones
+cd - change directory
+cd .. - go up one directory
+pwd - print working directory
+mkdir - create a new directory
+touch filename - create a new file
+touch directory/filename - create a file in a specific location
+rm - remove a file or directory
+rmdir - remove directory
+rm -rf directory - to remove nonempty directory 
+cp - copy a file or directory
+mv - move or rename a file or directory
+touch - create a new empty file
+cat - concatenate and display files
+chmod - change file permissions
+chown - change file ownership
+sudo - execute a command as the superuser
+df - display disk space usage
+du - display disk usage of files and directories
+find - search for files and directories
+grep - search for text within files
+start . - open root folder
+clear - clear terminal  
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Terminal shortcuts in vscode:
+ctrl + j - show/hide the terminal
+ctrl + pageup - move the terminal to the left
+ctrl + pagedown - move the terminal to the right
+ctrl + shift + ` (backtick) - open integrated terminal
+ctrl + \ - split terminal vertically
+ctrl + c - stop current command
+ctrl + z - suspend current command
+ctrl + a - move cursor to the beginning of the line
+ctrl + e - move cursor to the end of the line
+ctrl + u - delete everything before the cursor
+ctrl + k - delete everything after the cursor
+ctrl + w - delete the word before the cursor
+ctrl + l - clear the terminal
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Bash:
+Git version check: git --version
+
+Configurations:
+Git config name: git config --global user.name "Your Name"
+Git config email: git config --global user.email "youremail@example.com"
+Git config check: git config user.name
+Git config check email: git config user.email
+Git config list: git config --list
+Git quit config list screen: q
+Git config edit: git config --edit
+Git config delete: git config --global --unset user.name
+Git config delete email: git config --global --unset user.email
+Git config delete all: git config --global --remove-section user
+
+Git Actions:
+Git intantiate new repository: git init
+Clone a repository to local setup: git clone https://github.com/username/repository.git
+Status of all tracked and untracked files: git status
+Add specific files for tracking: git add <file1> <file2>
+Add all the files for tracking: git add .
+Commit changes to the files: git commit -m "Commit message"
+Add and Commit the changes in one line (if all files are needed to be uploaded) - git commit -am "Commit message"
+Ammending the latest commit (only for latest) - git commit --amend
+Restore a specific file - git restore <filename>
+History of commands used: git log
+History of commands used in oneline: git log --online
+History of commands used with smaller commit id: git log --abbrev-comit
+Move the commit one step back - git reset --soft HEAD~1
+Move the commit one step back and delete the commit and all the changes and restore the files - git reset --hard HEAD~1
+
+Git push: git push origin main
+Git pull: git pull origin main
+Git reset: git reset --hard HEAD
+Git remote: git remote -v
+Git remote add: git remote add origin https://github.com/username/repository.git
+Git remote remove: git remote remove origin
+Git remote rename: git remote rename old_name new_name
+Git remote set-url: git remote set-url origin https://github.com/username/repository.git
+Git remote update: git remote update
+Git remote show: git remote show origin
+Git remote prune: git remote prune origin
+Git remote set-head: git remote set-head origin main
+Git remote set-branches: git remote set-branches origin main
+Git remote set-url: git remote set-url origin https://github.com/username/repository.git
+Git remote set-url --add: git remote set-url --add origin https://github.com/username/repository.git
+Git remote set-url --delete: git remote set-url --delete origin https://github.com/username/repository.git
+Git remote set-url --push: git remote set-url --push origin https://github.com/username/repository.git
+
+Git - vim (git commit):
+Insert mode - i
+leave current mode - esc
+save and quit - :wq
+configure visual studio code to gitbash (windows) - git config --global core.editor "code --wait"
+
+//for others visit git docs
+
+gitignore:
+.gitignore - ignore files and directories
+templates:
+filename - will ignore all files with this name
+foldername/ - will ignore all files in this folder (including subfolders)
+*.extension - will ignore all files with this extension
+!.extension - will ignore all files with this extension except the one specified
+foldername/* - will ignore all files in this folder (but not subfolders)
+foldername/!.extension - will ignore all files in this folder with this extension except the one specified
+foldername/*.* - will ignore all files in this folder with any extension
+
+Git Branching:
+git branch - list all the branches
+git branch <branch-name> - create a new branch
+git checkout <branch-name> - switch to an existing branch
+git checkout -b <branch-name> - create and switch to a new branch
+git branch -d <branch-name> - delete a branch
+git branch -D <branch-name> - delete a branch even if it has unmerged changes
+git switch <branch-name> - to switch to another branch
+git merge <branch-name> - merge a branch into the current branch
+git branch -m <new_branch-name> - rename a branch (stay in the branch to change the name)
+git branch -v - show the last commit ID, message of each branch
+
+Git Merging:
+Move to the branch where the changes merge into. (the branch which recieves changes) 
+git merge <branch-name to merge with>
+
+Git Diffing:
+git diff - compare and shows the changes between staging area and working directory(not staged)
+git diff Head - give all changes since the file commited and not staged
+git diff HEAD [filename] - show changes for specific filename
+git diff --stat - show the changes in a summary
+git diff --cached / git diff --staged - show the changes in the staging area
+git diff --staged - show the changes in the staging area (same as --cached)
+git diff <commit1> <commit2> - show the changes between two commits
+git diff <branch1> <branch2> - show the changes between two branches
+git diff <commit1>..<commit2> - show the changes between two commits (excluding the first commit)
+git diff <branch1>..<branch2> - show the changes between two branches (excluding the first branch)
+
+Git Diffing Output Examinations:
+Added lines are prefixed with +
+Deleted lines are prefixed with -
+Changed lines are prefixed with + and -
+Unchanged lines are not prefixed with anything
+Will show only partial chunks of the file
+will denote previous version as ---a/filename and new version as ---b/filename
+@@ -(number of lines), number of characters, +(number of lines), number of characters @@
+Will show only the lines that have changed and the lines that have been added or deleted and the lines that have been modified
+
+Git Stashing:
+git stash / git stash save - save the changes in the working directory and staging area
+git stash list - list all the stashes
+git stash apply - apply the last stash
+git stash apply <stash-name> - apply a specific stash
+git stash drop - drop the last stash
+git stash drop <stash-name> - drop a specific stash
+git stash pop - apply the last stash and drop it
+git stash pop <stash-name> - apply a specific stash and drop it
+
+Git Checking out:
+git checkout <commit-hash> - checkout a specific commit
+git switch <branch-name> - reattach the head to a latest commit of a branch
+git checkout HEAD~1 - Checkout to 1 commit before the current commit
+git checkout HEAD~2 - Checkout to 2 commit before the current commit
+git switch - - detach the head from a branch (navigate to previous commit) (basically ctrl+z --- undo)
+git checkout HEAD <filename> / git checkout -- <filename> - checkout a specific file from a previous commit
+git checkout HEAD . / git checkout -- . - checkout all files from a previous commit
+
+Git Restoring:
+git restore <filename> - restore a file from the last commit
+git restore . - restore all files from the last commit
+git restore --staged - restore a file from the staging area
+git restore --worktree - restore a file from the working directory
+git restore --source <commit-hash> - restore a file from a specific commit
+git restore --source <branch-name> - restore a file from a specific branch
+git restore --source HEAD~2 <filename> - reverse the last two commits and restore the file from the previous commit
+git restore --staged <filename> - restore a file from the staging area and remove it from the staging area
+
+Git Resetting (never use):
+git reset <commit-hash> - reset the head to a specific commit (removes all the commits after the specified commit) (can take the new changes to a new branch to work after)
+git reset --hard <commit-hash> - reset the head to a specific commit with all the changes in the working directory
+
+Git Reverting (use escpecially on times of collaboration):
+git revert <commit-hash> - revert a specific commit and saves as a new commit (creates a new commit that undoes the changes of the specified commit)
+
+Git Cloning:
+git clone <url> - clone a remote repository
+git remote add <remote-name> <url> - assign an url to a psuedo name and use it at the time of command
+git remote rename <old> <new> - rename the remote name
+git remote remove <remote-name> - remove the remote name
+
+Git Pushing:
+git push <remote-name> <branch-name> - push the changes to the remote repository in a specific branch
+
+
+Commands to pull changes and commit our changes:
+git fetch origin
+git merge origin/main
+<Resolve conflicts>
+git add <files>
+git commit
+git push origin <branch-name>
+<make changes>
+git fetch origin
+git merge origin/main
+<Resolve conflicts>
+git add <files>
+git commit
+git push origin <branch-name>
+
+Git GUI:
+GitHub
+GitKraken
+GitHub Desktop
+
+Additional Information:
+HEAD file contains the information about the current branch
+.git/refs/heads/branch_name contains the information about the current branch's head commit id 
+
+Rules:
+No repository inside another repository
+You are always on a branch
+Don't switch branches without committing
+Merge only branches, not specific commits
+We always merge to the current HEAD branch
+When there is no change in a maser branch and we go for merging other branch to master, git will perform fast forward
+When there is a change in a master branch and we go for merging other branch to master, git will perform merge commit (new commit)
+When there is a change in a same file while merging, git will produce merge conflict, and we have to resolve it manually
+
+to recap:
+git diff
+git diff Head
+Exercise for diff & stash
+
+Git Flow:
+
+ +------------------+
+   |   Start (Repo)   |
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git init      |  <--- Initialize a local Git repository
+   +------------------+
+            |
+            v
+   +------------------+
+   |   git clone      |  <--- Clone a remote repo (if needed)
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git status    |  <--- Check status of changes
+   +------------------+
+            |                                                        ----> git diff
+            v
+   +------------------+
+   |    git add       |  <--- Stage changes        
+   +------------------+
+            |                                                        ----> git diff HEAD
+            v
+   +------------------+
+   |  git commit -m   |  <--- Commit changes with a message
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git push      |  <--- Push committed changes to remote repo
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git pull      |  <--- Pull latest changes from remote
+   +------------------+
+            |
+            v
+   +------------------+
+   |   Create Branch  |  <--- git branch <branch_name>
+   +------------------+
+            |
+            v
+   +------------------+
+   |  git checkout     |  <--- Switch to the new branch
+   +------------------+
+            |
+            v
+   +------------------+
+   |  Make Changes    |
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git add       |  <--- Stage changes
+   +------------------+
+            |
+            v
+   +------------------+
+   |  git commit -m   |  <--- Commit changes
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git merge     |  <--- Merge changes back to main branch
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git push      |  <--- Push merged changes to remote repo
+   +------------------+
+            |
+            v
+   +------------------+
+   |      Fork Repo   |  <--- Fork a repo on GitHub
+   +------------------+
+            |
+            v
+   +------------------+
+   |  Work on Forked  |  <--- Clone and work on your fork
+   +------------------+
+            |
+            v
+   +------------------+
+   |    Create PR     |  <--- Create a Pull Request to original repo
+   +------------------+
+            |
+            v
+   +------------------+
+   |  Review & Merge  |  <--- Review and merge PR in original repo
+   +------------------+
+            |
+            v
+   +------------------+
+   |      Done!       |
+   +------------------+
