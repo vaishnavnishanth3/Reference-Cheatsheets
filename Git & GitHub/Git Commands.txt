@@ -1,15 +1,854 @@
-git init -> initialize git
-git status -> files in staging area
-git add (fileName) -> to add file to staging area.
-git add . -> to add all the files to the staging area.
-git commit -m "Message" -> to identify the message along with new commit
-git log -> to get all the logs
-git diff (fileName) -> to see the modification of a file from the previous commit staged.
-git checkout (fileName)-> to return the previous version of the commit to original directory.
-git remote add (remoteName) ->  to create a remote to add in the repository
-git push -u (remoteName) (branchName) -> to push from local repository to github repository
-git rm --cached -r . -> to remove all from staging area.
-git clone (url of repository for the code to be copied) ->
-git branch (branchName) -> to create a new branch
-git branch -> to see all the branches
-git checkout (branchName) -> to switch to the new branch
+<-------------------------------------------------------------------------------------------------------------------->
+
+Terminal shortcuts in vscode:
+ctrl + j - show/hide the terminal
+ctrl + pageup - move the terminal to the left
+ctrl + pagedown - move the terminal to the right
+ctrl + shift + ` (backtick) - open integrated terminal
+ctrl + \ - split terminal vertically
+ctrl + c - stop current command
+ctrl + z - suspend current command
+ctrl + a - move cursor to the beginning of the line
+ctrl + e - move cursor to the end of the line
+ctrl + u - delete everything before the cursor
+ctrl + k - delete everything after the cursor
+ctrl + w - delete the word before the cursor
+ctrl + l - clear the terminal
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Unix commands:
+ls - list files in the current directory
+ls -al - list all files including hidden ones
+cd - change directory
+cd .. - go up one directory
+pwd - print working directory
+mkdir - create a new directory
+touch filename - create a new file
+touch directory/filename - create a file in a specific location
+rm - remove a file or directory
+rmdir - remove directory
+rm -rf directory - to remove nonempty directory 
+cp - copy a file or directory
+mv - move or rename a file or directory
+touch - create a new empty file
+cat - concatenate and display files
+chmod - change file permissions
+chown - change file ownership
+sudo - execute a command as the superuser
+df - display disk space usage
+du - display disk usage of files and directories
+find - search for files and directories
+grep - search for text within files
+start . - open root folder
+clear - clear terminal  
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git GUI:
+GitHub
+GitKraken
+GitHub Desktop
+GitLens
+Git Lens Inspect
+
+Bash:
+git --version: Check git version
+
+Additional Information:
+HEAD file contains the information about the current branch
+.git/refs/heads/branch_name contains the information about the current branch's head commit id 
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Configurations:
+git config --global user.name "Your Name" - configure name
+git config --global user.email "youremail@example.com" - configure email
+git config --global --unset user.name - delete configured name
+git config --global --unset user.email - delete configured email
+git config --global --remove-section user - delete config all
+git config user.name - check configured name
+git config user.email - check configured email
+git config --list - get configured list
+q - quit configuraiton list screen
+git config --edit - edit config file
+
+Steps:
+1. Open terminal
+2. Config all the details in git bash
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Logging & Status Checking:
+git init - git intantiate new repository
+git status - status of all tracked and untracked files
+
+git log - History of commits in the current branch
+git log --abbrev-comit - History of commands used with smaller commit id
+git log --online - History of commits in the current branch in one line
+git reset --soft HEAD~1 - Move the commit one step back and keep the changes
+git reset --hard HEAD~1 - Move the commit one step back and delete the commit and all the changes and restore the files
+
+Info:
+1. No repository inside another repository
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Adding & Committing:
+git add <file1> <file2> - Add specific files for tracking
+git add . - Add all the files for tracking
+git commit - Commit the changes in the staging area
+git commit -m "Commit message" - Commit the changes in the staging area with commit message
+git commit -a - Commit the changes in the working directory and staging area
+git commit -am "Commit message" - Add and Commit the changes in one line (if all files are needed to be uploaded)
+git commit --amend - Amending (Changing commit message and changes in working directory) the latest commit
+git commit --amend -m "new commit message" - amend the last commit with a new commit message
+git commit --amend --no-edit - amend the last commit without editing the commit message
+git commit --amend --no-verify - amend the last commit without running pre-commit hooks
+
+gitignore:
+.gitignore - ignore files and directories
+templates:
+filename - will ignore all files with this name
+foldername/ - will ignore all files in this folder (including subfolders)
+*.extension - will ignore all files with this extension
+!.extension - will ignore all files with this extension except the one specified
+foldername/* - will ignore all files in this folder (but not subfolders)
+foldername/!.extension - will ignore all files in this folder with this extension except the one specified
+foldername/*.* - will ignore all files in this folder with any extension
+
+Git - vim (git commit):
+Insert mode - i
+leave current mode - esc
+save and quit - :wq
+configure visual studio code to gitbash (windows) - git config --global core.editor "code --wait"
+
+Steps:
+1. Open the terminal in VS Code
+2. Type git config --global core.editor "code --wait" and press enter
+3. Open the terminal in VS Code again
+4. Type git commit -m "commit message" and press enter / Open the VS Code editor and type the commit message - Press esc to leave insert mode - Type :wq and press enter to save and quit
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Branching:
+git branch - list all the branches with current branch
+git branch <branch-name> - create a new branch
+git switch <branch-name> - to switch to another branch
+git switch -c <local-branch-name> <remote-name>/<remote-branch-name> - to switch to a branch on a remote repository and creating a new local branch
+git merge <branch-name> - merge a branch into the current branch
+git branch -m <new_branch-name> - rename a branch (stay in the b|ranch to change the name)
+git branch -d <branch-name> - delete a merged branch
+git branch -D <branch-name> - delete an unmerged branch
+git branch -v - show the last commit ID, message of each branch'
+git branch -r - show remote branches
+
+Info:
+1. You are always on a branch
+2. Don't switch branches without committing
+
+Steps:
+1. Create a new branch
+2. Make changes
+3. Commit changes
+4. Merge changes into the main branch
+5. Delete the branch
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Merging:
+Info: Move to the branch where the changes merge into. (the branch which recieves changes) 
+git merge <branch-name> - merge a branch into the current branch
+git merge --no-ff - merge a branch into the current branch without fast-forwarding
+git merge --ff-only - merge a branch into the current branch only if it can be fast-forwarded
+git merge --no-commit - merge a branch into the current branch without committing
+git merge --squash - merge a branch into the current branch and squash all the commits into one commit
+git merge --abort - abort the merge process
+git merge --continue - continue the merge process after resolving conflicts
+
+Info:
+1. When there is no change  in a master branch and we go for merging other branch to master, git will perform fast forward
+2. When there is a change in a master branch and we go for merging other branch to master, git will perform merge commit (new commit)
+3. When there is a change in a same file while merging, git will produce merge conflict, and we have to resolve it manually
+4. Merge only branches, not specific commits
+5. We always merge to the current HEAD branch
+
+Steps:
+1. Make changes in a branch
+2. Commit changes
+3. Merge changes into the main branch
+4. Resolve conflicts if any
+5. Commit the merge commit
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Diffing:
+git diff - compare and shows the changes between staging area and working directory(not staged)
+git diff --stat - show the changes in a summary
+git diff --cached / git diff --staged - show the changes in the staging area
+git diff --staged - show the changes in the staging area (same as --cached)
+git diff HEAD - give all changes since the file commited and not staged
+git diff HEAD <file-name> - show changes for specific filename
+git diff <commit-1-hash>...<commit-2-hash> - show the changes between two commits (excluding the first commit)
+git diff <branch-1-name>...<branch-2-name> - show the changes between two branches (excluding the first branch)
+
+Git Diffing Output Examinations:
+Added lines are prefixed with +
+Deleted lines are prefixed with -
+Changed lines are prefixed with + and -
+Unchanged lines are not prefixed with anything
+Will show only partial chunks of the file
+will denote previous version as ---a/filename and new version as ---b/filename
+@@ -(number of lines), number of characters, +(number of lines), number of characters @@
+Will show only the lines that have changed and the lines that have been added or deleted and the lines that have been modified
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Stashing:
+git stash / git stash save - save the changes in the working directory and staging area
+git stash list - list all the stashes
+git stash apply - apply the last stash
+git stash apply <stash-name> - apply a specific stash
+git stash drop - drop the last stash
+git stash drop <stash-name> - drop a specific stash
+git stash pop - apply the last stash and drop it
+git stash pop <stash-name> - apply a specific stash and drop it
+git stash clear - clear all the stashed changes
+
+Steps:
+1. Make changes in a branch
+2. Save the changes using stash
+3. Make changes in the main branch
+4. Apply the stash in the main branch
+5. Drop the stash in the main branch
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Switching:
+git switch <branch-name> - to switch to another branch
+git switch <branch-name> - reattach the head to a latest commit of a branch
+git switch - - detach the head from a branch (navigate to previous commit) (basically ctrl+z --- undo)
+git switch -c <local-branch-name> <remote-name>/<remote-branch-name> - to switch to a branch on a remote repository and creating a new local branch
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Checking out:
+git checkout <commit-hash> - checkout a specific commit
+git checkout HEAD~1 - Checkout to 1 commit before the current commit
+git checkout HEAD~2 - Checkout to 2 commit before the current commit
+git checkout HEAD <filename> / git checkout -- <filename> - checkout a specific file from a previous commit
+git checkout HEAD . / git checkout -- . - checkout all files from a previous commit
+git checkout <branch-name> - switch to an existing branch
+git checkout -b <branch-name> - create and switch to a new branch
+git checkout <remote-name>/<branch-name> - switch to a branch on a remote repository
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Restoring:
+git restore <filename> - restore a specific file from previous commit
+git restore . - restore all files from the last commit
+git restore --staged - restore a file from the staging area
+git restore --worktree - restore a file from the working directory
+git restore --source <commit-hash> - restore a file from a specific commit
+git restore --source <branch-name> - restore a file from a specific branch
+git restore --source HEAD~2 <filename> - reverse the last two commits and restore the file from the previous commit
+git restore --staged <filename> - restore a file from the staging area and remove it from the staging area
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Resetting (never use):
+git reset <commit-hash> - reset the head to a specific commit (removes all the commits after the specified commit) (can take the new changes to a new branch to work after)
+git reset --hard HEAD - Git reset the head to the latest commit (removes all the commits after the latest commit)
+git reset --hard <commit-hash> - reset the head to a specific commit with all the changes in the working directory
+git reset --hard <branch-name>{1} - reset the head to a specific branch with all the changes in the working directory after resetting to previous commit (Reflog Feature)
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Reverting (use escpecially on times of collaboration):
+git revert <commit-hash> - revert a specific commit and saves as a new commit (creates a new commit that undoes the changes of the specified commit)
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Cloning:
+git clone <url> - Clone a remote repository to local setup
+git clone <url> <local-directory> - Clone a remote repository to a specific local directory
+git clone -b <branch-name> <url> - Clone a remote repository to a specific branch
+git clone -b <branch-name> <url> <local-directory> - Clone a remote repository to a specific branch and a specific local directory
+git clone --depth=1 <url> - Clone a remote repository with only the last commit
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Remotes:
+git remote - show the remote repositories
+git remote add <remote-name> <url> - add a remote repository with a url
+git remote -v - show the remote repositories with their urls
+git remote update - update the remote repositories
+git remote show <remote-name> - show the remote repository with its url
+git remote remove <remote-name> - remove a remote repository
+git remote rename <old-remote-name> <new-remote-name> - rename a remote repository
+git remote add <remote-name> <url> - assign an url to a psuedo name and use it at the time of command
+git remote rename <old> <new> - rename the remote name
+git remote remove <remote-name> - remove the remote name
+git remote prune <remote-name> - remove the remote name from the local repository
+git remote set-url <remote-name> <remote_url> - set the url of the remote repository
+git remote set-head <remote-name> <branch-name> - set the head of the remote repository to a specific branch
+git remote set-branches <remote-name> <branch-name> - set the branches of the remote repository to a specific branch
+git remote set-url <remote-name> <remote_url> - set the url of the remote repository
+git remote set-url --add <remote-name> <remote_url> - add a url to the remote repository
+git remote set-url --delete <remote-name> <remote_url> - delete a url from the remote repository
+git remote set-url --push <remote-name> <remote_url> - set the url of the remote repository to push
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Pushing:
+git push <remote-name> <branch-name> - push the changes to the remote repository in a specific branch
+git push -u <remote-name> <branch_name> - push the changes to the remote repository in a specific branch and set the remote repository as the default
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Fetching:
+git fetch <remote-name> - fetch the changes from the remote repository
+git fetch <remote-name> <branch-name>- fetch the changes from a particular branch in a remote repository
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Pulling:
+git pull <remote-name> <branch-name> - fetch the changes from the remote repository and merge them into the current branch
+git pull --rebase <remote-name> <branch-name> - fetch the changes from the remote repository and rebase them onto the current branch
+git pull - fetch the changes from the remote (only one remote) and merge them into the current branch
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Steps for a whole new repo:
+git init
+git clone <url>
+git status
+git branch <branch-name>
+git checkout <branch-name>
+git stash
+git switch <branch-name>
+git stash pop
+git merge <branch_name>
+git add .
+git commit -m "First commit"
+git diff
+git diff HEAD
+git remote add origin <url>
+git fetch
+git pull
+git push origin <branch_name>
+git log
+git log --oneline
+git log --oneline --graph
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+GitHub Colloboration Workflows:
+Steps:
+1. Centralized Workflow - Everone works on the same branch
+2. Feature Branch Workflow - Every feature is developed on a separate branch
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Markdowns:
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+*Italic* - _Italic_ 
+**Bold** - __Bold__
+***Bold Italic*** - ___Bold Italic___
+
+* List item 1
+* List item 2
+* List item 3
+   * Nested List item 1
+   * Nested List item 2
+
+1. List item 1
+2. List item 2
+3. List item 3
+
+- [ ] Checkbox 1
+- [x] Checkbox 2
+
+[Link text](https://www.example.com)
+
+![Image alt text](https://www.example.com/image.jpg)
+
+> Blockquote
+>> Nested blockquote
+>>> Nested blockquote
+
+`Inline code`
+
+```(code language name for syntax hightlighting)
+Code block
+```
+
+```js
+console.log("Yes")
+```
+
+| Heading 1 | Heading 2 | Heading 3 |
+|-----------|-----------|-----------|
+| Cell 1    | Cell 2    | Cell 3    |
+| Cell 4    | Cell 5    | Cell 6    |
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Forking:
+
+git remote add origin <forked-remote-repo_url> - add the forked repository as the origin
+git remote add upstream <original-remote-repo-url> - add the original repository as the upstream
+
+Steps:
+1. Fork the repository
+2. Clone the forked repository
+3. Add an upstream remote repository (there will be 2 remotes - origin(forked one) and upstream(original one))
+4. Create a new branch
+5. Make changes
+6. Commit changes
+7. Push changes to the forked repository
+8. Create a pull request
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Rebasing (Code clean up & Alternative way for merging branches):
+
+git rebase <branch-name> - rebase the current branch onto the specified branch
+git rebase --continue - continue the rebase process after solving the conflicts
+
+Info: 
+1. Never rebase commits that's been shared with others
+
+Steps:
+1. Create a new branch
+2. Make changes
+3. Commit changes
+4. Switch to the original branch
+5. Fetch the changes from the remote repository
+6. Rebase the current branch onto the original branch (current branch will be on top of the original branch) (feature branch rebasing on to original branch)
+7. Solve any conflicts that arise
+8. Push the changes to the remote repository
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Interactive Rebasing (Rewriting History (Clean up)):
+git rebase -i <commit-hash> - start an interactive rebase session starting from the specified commit
+git rebase -i HEAD~n - start an interactive rebase session starting from the n-th commit before the current commit
+
+Keyword:
+reword - rename the commit
+fixup - squash the commit into the previous one (use more than 1 to squish multiple commits into the oldest fixedup into its previous one)
+squash - squash the commit into the previous one (interactive rebase)
+pick - keep the commit as it is
+drop - delete the commit
+
+Info:
+1. rewrite, delete, rename, reorder commits
+
+Steps:
+1. Create a new branch
+2. Make changes
+3. Commit changes
+4. Switch to the original branch
+5. Fetch the changes from the remote repository
+6. Start an interactive rebase session starting from the current commit
+7. Add the action keyword & Edit the commit messages
+8. Save and exit the editor
+9. Solve any conflicts that arise
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Tags:
+Tags are used to mark specific points in time in the repository's history
+Need to push tags manually (not included in commit push command)
+
+Info: 
+Add Tag to which commit the Head References to currently.
+
+Types:
+1. Lightweight tags - a simple reference to a commit
+2. Annotated tags - a tag with a message, a timestamp, and the name and email
+
+Semantic Versioning (Rules):
+1. Major version - a significant change that breaks backward compatibility
+2. Minor version - a backward-compatible feature addition
+3. Patch version - a backward-compatible bug fix
+
+Example: 1.2.3 -> 1 (Major version).2 (Minor version).3 (Patch version)
+
+git tag - show all tags
+git tag -l - list all tags
+git tag -l "" - list all tags with a specific prefix
+git tag -l "*n*" - list all tags with a specific pattern
+git tag -l -n1 - show all tags with their messages
+git tag -l -n1 "*n*" - show all tags with a specific pattern and their messages
+git show <tag-name> - show the details of a specific tag
+git tag <tag-name> - create a new tag
+git tag -a <tag-name> - create a new annotated tag
+git tag -a <tag-name> <commit-hash> - create a new annotated tag for a specific commit
+git tag -f <tag-name> - force create a new tag
+git tag -d <tag-name> - delete a tag
+git push --tags - push all tags to the remote repository
+git push origin <tag-name> - push a tag to a specific remote repository
+
+Checking out tags:
+git checkout <tag-name> - checkout a tag (will create a new branch)
+git checkout -b <branch-name> <tag-name> - checkout a tag and create a new branch
+git checkout tags/<tag-name> - checkout a tag (will create a new branch)
+git checkout -b <branch-name> tags/<tag-name> - checkout a tag and create a new branch
+git checkout tags/<tag-name> - checkout a tag (will create a new branch)
+git checkout -b <branch-name> tags/<tag-name> - checkout a tag and create a new branch
+
+Diffing tags:
+git diff <tag-name> <other-tag-name> - show the differences between two tags
+git diff <tag-name> <commit-hash> - show the differences between a tag and a commit
+git diff <commit-hash> <tag-name> - show the differences between a commit and a tag
+git diff <tag-name>..<other-tag-name> - show the differences between two tags (commits between the two tags)
+git diff <tag-name>..<commit-hash> - show the differences between a tag and a commit (commits between the tag and the commit)
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git behind the scenes:
+dir - .config in .git (local config which has settings only for this lcoal repo):
+Check config documentation in git website
+
+Local:
+git config --local --list - list all local config settings
+git config --local user.name "John Doe" - set the local user name
+git config --local user.email "john.doe@example.com" - set the local user email
+git config --local core.editor "vim" - set the local editor
+git config --local core.excludesfile ~/.gitignore - set the local gitignore file
+git config --local core.autocrlf true - set the local autocrlf setting
+
+Global:
+git config --global --list - list all global config settings
+git config --global user.name "John Doe" - set the global user name
+git config --global user.email "john.doe@example.com" - set the global user email
+git config --global core.editor "vim" - set the global editor
+git config --global core.excludesfile ~/.gitignore - set the global gitignore file
+git config --global core.autocrlf true - set the global autocrlf setting
+
+Config:
+   In Config settings for local repo, add the following:
+   [color]
+      ui = true
+   [color "branch"]
+      local = cyan Bold
+      remote = yellow
+   [color "diff"]
+      meta = yellow
+      old = red
+      new = green
+   [color "status"]
+      added = green
+      changed = yellow
+      untracked = cyan
+   [color "diff"]
+      meta = yellow
+      old = red
+      new = green
+   [color "status"]
+      added = green
+      changed = yellow
+      untracked = cyan
+   [color "diff"]
+      meta = yellow
+      old = red
+      new = green
+   [color "status"]
+      added = green
+      changed = yellow
+      untracked = cyan
+   [color "diff"]
+      meta = yellow
+      old = red
+      new = green
+   [color "status"]
+      added = green
+      changed = yellow
+      untracked = cyan
+   [color "branch"]
+      local = cyan bold
+      remote = yellow bold
+      current = red bold
+
+Git Custom Aliases:
+
+Go to home (~) directory and search for .gitconfig file
+add a new line at the end of the file with the alias you want to create
+for example:
+[alias]
+   co = checkout
+   br = branch
+   ci = commit
+   st = status
+   pl = pull
+   ps = push
+   dt = difftool
+   l = log --stat
+   cp = cherry-pick
+   rb = rebase
+   mer = merge
+   coa = commit --amend
+   ds = diff --staged
+   ca = commit -a
+   cp = cherry-pick
+   rb = rebase
+   mer = merge
+   coa = commit --amend
+   ds = diff --staged
+
+git config --global alias.<alias_name> <command> - The command to create a custom alias for a command
+git config --global alias.<alias_name> <command> --global - The command to create a global custom alias for a command
+git config --global alias.<alias_name> <command> --local - The command to create a local custom alias for a command
+git config --global alias.<alias_name> <command> --system - The command to create a system custom alias for a command
+
+refs/:
+   refs/heads - local branches
+   refs/remotes - remote branches
+   refs/tags - tags
+   refs/notes - notes
+   refs/merge-requests - merge requests
+   refs/pull - pull requests
+   refs/for - for
+
+HEAD:
+   If the HEAD is in a latest commit of a branch, it points to the current branch. 
+   Else if it is in detached statem it will be a reference to a commit hash.
+   ref: refs/heads/main
+
+index:
+   contains a list of files that are staged for commit, modified but not staged for commit, deleted but not staged for commit, untracked
+
+hashing:
+   git uses a SHA-1 hash to uniquely identify each object, each commit, each tree, each blob, each annotated tag, each pack file & each index file in the repository.
+   SHA - 1 is a 160-bit hash function that produces a 40-character hexadecimal string.
+
+Git database:
+   Git is a key value data store
+   Git database is a collection of objects that are stored in a compressed format and are named using a hash of the file content, in a binary format.
+   Git database is stored in the .git directory in the repository. It will store all the values of a file as a value in a key, later we can get the values using the key.
+
+   echo "hello" | git hash-object --stdin - The command to get a key for a specific object (just hash and does not store it in the object directory of the repository)
+   echo "hello" | git hash-object -w --stdin - The command to get a key for a specific object and store it in the object directory of the repository
+
+   git hash-object <filename> - The command to get a key for a specific object (file)
+   git cat-file -p <key> - The command to get the value of a specific object (file)
+   git cat-file -t <key> - The command to get the type of a specific object (file)
+   git cat-file -e <key> - The command to check if a specific object (file) exists
+   git cat-file -p <key> > <filename> - The command to get the value of a specific object (file) and store it in a file
+
+   The hash-object will get a new entry in the object directory of the repository, and the cat-file will get the value of the object from the object directory of the repository
+
+objects/:
+   objects/ are the actual files that are stored in the repository.
+   objects/ are stored in a compressed format and are named using a hash of the file content.
+   objects/ are stored in a binary format.
+   objects/ has 4 types of git objects:
+      1. commit
+      2. tree
+      3. blob
+      4. annotated tag
+   objects/ has the following subdirectories:
+      objects/pack - pack files
+      objects/info - information about the repository
+      objects/loose - loose objects
+      objects/info/packs - information about the pack files
+      objects/info/alternates - information about the alternate repositories
+      objects/info/sparse-checkout - information about the sparse checkout
+      objects/info/commit-graph - information about the commit graph
+      objects/info/refs - information about the references
+      objects/info/packs/pack-*.idx - index files for the pack files
+
+blobs:
+   blobs are the actual files that are stored in the repository.
+   blobs are stored in a compressed format and are named using a hash of the file content.
+   blobs are stored in a binary format.
+   blobs are stored in the objects/ directory of the repository.
+   blobs are stored in the objects/loose directory of the repository.
+   blobs are stored in the objects/pack directory of the repository.
+   blobs are stored in the objects/info/packs directory of the repository.
+   blobs are stored in the objects/info/alternates directory of the repository.
+
+trees:
+   trees are the actual files that are stored in the repository.
+   trees are stored in a compressed format and are named using a hash of the file content.
+   trees are stored in a binary format.
+   trees are stored in the objects/ directory of the repository.
+   trees are stored in the objects/loose directory of the repository.
+   trees are stored in the objects/pack directory of the repository.
+   trees are stored in the objects/info/packs directory of the repository.
+
+   Viewing Trees:
+      git cat-file -p <tree_key> - The command to get the value of a specific tree object
+      git cat-file -t <file> - type of a file (blob / tree / commit)
+      git cat-file -p master^{tree} - The command to get the value of the tree object of the master branch's latest commit
+      git cat-file -p master^{tree}:<filename> - The command to get the value of the tree object of the master branch and the filename
+      git ls-tree -r <tree_key> - The command to get the list of files in a specific tree object
+      git ls-tree -r master^{tree} - The command to get the list of files in the master branch
+      git ls-tree -r master^{tree}:<filename> - The command to get the list of files in the master branch and the filename
+      git ls-tree -r master^{tree} | grep <filename> - command to see the blob or tree key with file name in a repository
+
+Blobs are for files and trees are for directories
+
+commits:
+   commits are the actual commits that are stored in the repository.
+   commits are stored in a binary format.
+   commits are stored in the objects/ directory of the repository.
+   commits are stored in the objects/loose directory of the repository.
+   commits are stored in the objects/pack directory of the repository.
+   commits are stored in the objects/info/packs directory of the repository.
+   commits are stored in the objects/info/alternates directory of the repository.
+   commits are stored in the objects/info/commit-graph directory of the repository.
+   commits are stored in the objects/info/refs directory of the repository.
+   commits are stored in the objects/info/packs/pack-*.idx directory of the repository.
+
+   Viewing Commits:
+      git cat-file -p <commit_key> - The command to get the value of a specific commit object
+      git log - The command to get the list of commits in the repository
+      git log -p - The command to get the list of commits in the repository with the diff of the changes
+      git log -p -1 - The command to get the list of commits in the repository with the diff of the changes of the latest commit
+      git log -p --all - The command to get the list of commits in the repository with
+   
+   the diff of the changes of all the commits:
+      git log -p --all --graph - The command to get the list of commits in the repository with the diff of the changes of all the commits and the graph of the commits
+      git log -p --all --graph --oneline - The command to get the list of commits in the repository with the diff of the changes of all the commits and the graph of the commits and the commit hash
+      git log -p --all --graph --oneline --decorate - The command to get the list of commits in the repository with the diff of the changes of all the commits and the graph of the commits and the commit hash and the branch name
+      git log -p --all --graph --oneline --decorate --stat - The command to get the list of commits in the repository with the diff of the changes of all the commits and the graph of the commits and the commit hash and the branch name and the number of lines added and removed
+      git log -p --all --graph --oneline --decorate --stat --no-merges - The command to get the list of commits in the repository with the diff of the changes of all the commits and the graph of the commits and the commit hash and the branch name and the number of lines added and removed and the commits are not merged
+      git log -p --all --graph --oneline --decorate --stat --no-merges --reverse - The command to get the list of commits in the repository with the diff of the changes of all the commits and the graph of the commits and the commit hash and the branch name and the number of lines added and removed and the commits are not merged and the commits are in reverse order
+      git log -p --all --graph --oneline --decorate --stat --no-merges --reverse --pretty=format:"%h - %an, %ar : %s" - The command to get the list of commits in the repository with the diff of the changes of all the commits and the graph of the commits and the commit hash and the branch name and the number of lines added and removed and the commits are not merged and the commits are in reverse order and the commit hash, author name, author date, and commit message are displayed in a specific format
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Reflogging (Reference Logging):
+
+   Git keeps a record of when the tips of the branches are updated in the repository. This record is called the reflog.
+   The reflog is stored in the objects/info/refs file of the repository.
+   Reflogs are only logging locally (usually removed in 90 days (Changable))
+   Can undo the undid of undoing
+
+   .git > logs > HEAD, refs:
+
+   git reflog - The command to get the list of commits in the repository
+   git reflog -p - The command to get the list of commits in the repository with the diff of the changes
+   git reflog -p -1 - The command to get the list of commits in the repository with the diff of the changes of the latest commit
+   git reflog -p --all - The command to get the list of commits in the repository with the diff of the changes of all the commits
+   git reflog show HEAD - The command to get the list of commits in the repository with the diff of the changes of the HEAD branch
+   git reflog show <branch_name> - The command to get the list of commits in the repository with the diff of the changes of the <branch_name> branch
+   git reflog show <commit_hash> - The command to get the list of commits in the repository with the diff of the changes of the <commit_hash> commit
+   git reflog show HEAD@{2} - The command to get the list of commits in the repository with the diff of the changes of the HEAD branch 2 changes ago
+   git reflog show HEAD@{0} - The command to get the list of commits in the repository with the diff of the changes of the HEAD branch 0 changes ago (same as HEAD)
+   git reflog show HEAD@{yesterday} - The command to get the list of commits in the repository with the diff of the changes of the HEAD branch yesterday
+   git reflog show HEAD@{1.day.ago} - The command to get the list of commits in the repository with the diff of the changes of the HEAD branch 1 day ago
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+Git Flow:
+
+   +------------------+
+   |   Start (Repo)   |
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git init      |  <--- Initialize a local Git repository
+   +------------------+
+            |
+            v
+   +------------------+
+   |   git clone      |  <--- Clone a remote repo (if needed)
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git status    |  <--- Check status of changes
+   +------------------+
+            |                                                        ----> git diff
+            v
+   +------------------+
+   |    git add       |  <--- Stage changes        
+   +------------------+
+            |                                                        ----> git diff HEAD
+            v
+   +------------------+
+   |  git commit -m   |  <--- Commit changes with a message
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git push      |  <--- Push committed changes to remote repo
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git pull      |  <--- Pull latest changes from remote
+   +------------------+
+            |
+            v
+   +------------------+
+   |   Create Branch  |  <--- git branch <branch_name>
+   +------------------+
+            |
+            v
+   +------------------+
+   |  git checkout     |  <--- Switch to the new branch
+   +------------------+
+            |
+            v
+   +------------------+
+   |  Make Changes    |
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git add       |  <--- Stage changes
+   +------------------+
+            |
+            v
+   +------------------+
+   |  git commit -m   |  <--- Commit changes
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git merge     |  <--- Merge changes back to main branch
+   +------------------+
+            |
+            v
+   +------------------+
+   |    git push      |  <--- Push merged changes to remote repo
+   +------------------+
+            |
+            v
+   +------------------+
+   |      Fork Repo   |  <--- Fork a repo on GitHub
+   +------------------+
+            |
+            v
+   +------------------+
+   |  Work on Forked  |  <--- Clone and work on your fork
+   +------------------+
+            |
+            v
+   +------------------+
+   |    Create PR     |  <--- Create a Pull Request to original repo
+   +------------------+
+            |
+            v
+   +------------------+
+   |  Review & Merge  |  <--- Review and merge PR in original repo
+   +------------------+
+            |
+            v
+   +------------------+
+   |      Done!       |
+   +------------------+
+
+<-------------------------------------------------------------------------------------------------------------------->
