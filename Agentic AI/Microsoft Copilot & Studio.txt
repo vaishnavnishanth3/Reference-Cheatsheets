@@ -30,12 +30,7 @@ Copilot Studio:
             --> Will contain the list of workflows created and the configurations for creation of new workflows with Agent
         4. Tools
             --> Will contain the list of tools created and the configurations for creation of new tools like API integration, Custom prompts and connectors
-
-Copilot Studio
-
-This is Microsoft’s “out-of-the-box” Copilot built into the Microsoft 365 environment (Word, Excel, PowerPoint, Outlook, Teams, etc.)
-It helps with everyday productivity: summarizing documents or meetings, drafting emails, and more
-    1. Can be used for business - customer, business - employee & business - business (monitor & reports of business and services)
+            
 M365 Copilot v Copilot Studio:
 
 M365 Copilot
