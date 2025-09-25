@@ -1,0 +1,68 @@
+Resources:
+    https://learn.microsoft.com/en-us/shows/mastering-copilot-studio/
+
+1. Microsoft Copilot Studio can be used only via orgainization, university or school mail IDs.
+2. Power platform - Data Management, Deploement, Lincensing & has environments where can store, manage, and share organizations business data, apps, chatbots and flows with greater visibilities and controls
+
+
+Look ups:
+    1. Customize appearance of AI in Studio by setting themes
+    2. Can view session details
+    3. Can change timezone
+    4. Use documentations under help options for more understandings.
+
+Copilot Studio:
+    1. We can choose different environments (based on organizations creations of environments)
+    2. Agents can be extended to different paltforms like teams, and external websites and can be published to other channels
+    3. Can automate manual workflows by leveraging co-pilot agents
+    4. Can be used for business - customer, business - employee & business - business (monitor & reports of business and services)
+    5. Can connect different platform connectors using external links and create automation workflows (Backend via APIs)
+    6. Trigger Automation Workflows in overview and settings using variant models of Azure AI Integrations, once Agent is created
+    7. Can customize languages for AI Agents and can be studied for statistics and analystics for continuous improvements
+    8. Customize sharing setting for needs 
+
+    Tabs:
+        1. Home
+            --> Contains all the prompts and templates of agents described with the details and usages and documentations and tutorials
+        2. Create
+            --> Will contain the list of agents created and the configurations for creation of new Agent
+        3. Flows
+            --> Will contain the list of workflows created and the configurations for creation of new workflows with Agent
+        4. Tools
+            --> Will contain the list of tools created and the configurations for creation of new tools like API integration, Custom prompts and connectors
+
+Copilot Studio
+
+This is Microsoft’s “out-of-the-box” Copilot built into the Microsoft 365 environment (Word, Excel, PowerPoint, Outlook, Teams, etc.)
+It helps with everyday productivity: summarizing documents or meetings, drafting emails, and more
+    1. Can be used for business - customer, business - employee & business - business (monitor & reports of business and services)
+M365 Copilot v Copilot Studio:
+
+M365 Copilot
+
+This is Microsoft’s “out-of-the-box” Copilot built into the Microsoft 365 environment (Word, Excel, PowerPoint, Outlook, Teams, etc.)
+It helps with everyday productivity: summarizing documents or meetings, drafting content, analyzing data, etc.
+You get it via licensing per user. Pay monthly or annually to enable this capability for people in your org.
+
+Copilot Studio
+
+This is the “build-your-own” kit for copilots / agents. More customizable. Meant for businesses or dev/IT teams that want more control and can handle more complexity. Bismart Blog.
+You build agents — bots or copilots tailored to specific tasks, workflows, or integrations. They can talk to external systems, use connectors, be published in multiple channels (Teams, web, WhatsApp, maybe external to Microsoft apps) etc. 
+
+
+Steps to Create Agent:
+    1. Describe the Purpose, and tasks.
+    2. Name selection (generated or create new).
+    3. Refine instructions (be specific regarding the tasks, methods and flows).
+    4. Add all files needed to use as a knowledge source for the agents.
+    5. Configure the agent to use the files and instructions.
+    6. Add connectors in overview tab for more connections for data using featured or advanced connectors. (Customize description).
+    7. Add Topics to control the conversation or dialog flow in a structured way and dictate logic for response from the Agent.
+    8. Topics can be created by blank details or visually (flow charts or algo repsonse).
+    9. Use visual topic selection option to configure the condition of request from user and configure the response, using the flow.
+    10. Trigger Generative answers, redirection option and tools addition are some of the available response methods.
+    11. We can adjust relevance and frequency of response of Agent using visual representation.
+    12. Generative model is LLM based and generation of response dynamically.
+    13. Create Tools to automate and trigger a flow on the event of catching allowed applications.
+    14. Monitor the Analytics of the agent to understand the performance and usage of the agent using Activity bar.
+    15. Add links and snippets to add agent in website or other applications by selecting the available options for applications.
