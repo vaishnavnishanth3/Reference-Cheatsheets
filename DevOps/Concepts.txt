@@ -1,0 +1,6 @@
+1. Setting up lab env
+2. Navigation though linux CLI
+3. Networking between VMs (setting IP address, connectivity, DNS issues etc)
+4. Application and depedencies installations
+5. Database connectivity & working with YAML and JSON files
+6. Applications basic and Web Servers
