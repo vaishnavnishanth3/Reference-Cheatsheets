@@ -1,0 +1,16 @@
+ref: https://youtu.be/icZUzgtz_d8?si=B4KX_VvEv9cRwVkV   
+
+GitHub Actions:
+`   Basic Workflow:
+        1. Git Repo
+        2. Setting up GitHub Actions
+        3. Add vm runner
+        4. CI/CD Yaml pipeline
+        5. Integration of tools and server in pipeline (trivy, sonarqube, docker, k8s etc.)
+        6. Deploy to server
+
+Jenkins:
+    Components: 
+        1. Jenkins master
+        2. Jenkins slave
+
