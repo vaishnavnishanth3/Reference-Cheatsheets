@@ -9,8 +9,165 @@ GitHub Actions:
         5. Integration of tools and server in pipeline (trivy, sonarqube, docker, k8s etc.)
         6. Deploy to server
 
+Runner - server (which runs the application)
+    Types:
+        1. Shared Runner - Free of cost but cannot get access or control over the backend (server) for configuration or customization.
+        2. Self-hosted Runner (private runner) - Can acess and navigate to the VM and view files and actions.
+    Can mention runner OS (Ex: ubuntu-latest, windows-latest)
+
 Jenkins:
     Components: 
-        1. Jenkins master
-        2. Jenkins slave
+        1. Jenkins master - actual jenkinis server
+        2. Jenkins slave - building application setup
 
+    Resources:
+        1. Virtual Machine - t2.medium (payment needed)
+
+GitHub Actions:
+    Resources:
+        1. GitHub Account
+        2. GitHub Repo
+        3. CI / CD jobs scripts
+
+Phases:
+    1. Setup GitHub repo
+    2. Setup VM runner
+    3. Setup CI/CD jobs
+        a. Security check
+        b. Test cases
+        c. Build & publish artifacts
+        d. Build and scan docker image and push into docker registory (repository)
+        e. Deploy to kubernetes cluster
+    
+Shared Runner:
+    1. Create a new repository
+    2. Add the code base into the repo using git push
+    3. Go to Actions
+    4. Either Choose a template or create a new workflow
+    5. Check the created workflow (by template or new creation) for syntax, runner configs and actions configs
+
+Worflow file (.yml):
+name: CI/CD pipeline
+    # Name of the workflow — shown in GitHub Actions tab.
+    # It helps identify what the pipeline does (here, Continuous Integration & Deployment).
+
+on:
+    push:
+        branches: [ main ]
+        # Triggers this workflow whenever code is pushed to the `main` branch.
+        # Commonly used for automatic testing or deployment after code merges.
+        
+    pull_request:
+        branches: [ main ]
+        # Triggers this workflow when a pull request is opened or updated against the `main` branch.
+        # Ensures code from feature branches is validated before merging.
+
+jobs:
+    build:
+        # Job name (can be anything: build, test, deploy, etc.)
+        # Each job runs in a separate virtual environment (runner).
+
+        runs-on: ubuntu-latest
+            # Specifies the operating system environment for the job.
+            # GitHub provides Ubuntu, Windows, and macOS runners.
+            # Here, we use the latest Ubuntu image with preinstalled tools (Node, Python, etc.).
+
+        steps:
+            # Each step is a sequence of tasks to execute within the job.
+            # Steps can run shell commands or use prebuilt GitHub Actions.
+
+            - name: Checkout code
+                # Step 1: Retrieve the repository code to the runner.
+                # Without this, the runner won't have access to the repo files.
+              uses: actions/checkout@v2
+                # Uses a prebuilt GitHub Action from the Marketplace.
+                # This specific action checks out your repository under $GITHUB_WORKSPACE.
+
+            - name: Set up Node.js
+                # Step 2: Setup a specific Node.js version for running the project.
+              uses: actions/setup-node@v3
+              with:
+                node-version: '18'
+                # Defines the version of Node.js to install.
+                # It ensures all subsequent steps use this Node.js environment.
+
+            - name: Install dependencies
+                # Step 3: Install all required npm packages for the project.
+                # This step ensures the runner has all dependencies needed to build or test the app.
+              run: npm install
+                # Executes the shell command `npm install`.
+
+            - name: Run tests
+                # Step 4: Run automated tests to verify code correctness.
+                # If any test fails, the pipeline stops here (marks the workflow as failed).
+              run: npm test
+
+            - name: Build the project
+                # Step 5: Build the project (if applicable).
+                # This is typically used for front-end apps or Node.js projects that need bundling.
+              run: npm run build
+
+            - name: Upload build artifacts
+                # Step 6: Save build outputs for use in later jobs or for downloading from GitHub.
+                # Example: compiled frontend files or build logs.
+              uses: actions/upload-artifact@v3
+              with:
+                name: build-output
+                path: dist/
+                # `path` specifies which folder or files to upload (commonly the build folder).
+
+    deploy:
+        # Second job — responsible for deployment after successful build.
+        # Jobs run sequentially or in parallel depending on dependencies.
+
+        needs: build
+            # Ensures the deploy job runs only after the build job completes successfully.
+        
+        runs-on: ubuntu-latest
+            # Same as before — runs deployment commands on a Linux runner.
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+                # Required again since each job runs in a new environment.
+
+            - name: Deploy to server
+                # Step 1: Deployment step — can be replaced with any deployment logic.
+                # Could use SSH, FTP, AWS CLI, or a third-party Action.
+              run: |
+                echo "Deploying application..."
+                # Example placeholder for real deployment commands.
+                # e.g., scp files to server, call API, or use firebase deploy.
+
+
+Self-hosted runner:
+    - GitHub Actions can be run on self-hosted runners, which are physical or virtual machines you control.
+    - This allows for more control over the environment, security, and performance.
+    - You can install and configure runners on your own infrastructure, which can be useful for sensitive projects or specific requirements.
+
+    1. Go to settings
+    2. Navigate to Actions
+    3. Select runners
+    4. Click on "New self-hosted runner"
+    5. Select the runner image (macOS, linux, or Windows)
+    6. Select Architecture
+    7. Check the download, configure & self hosted runner tabs.
+    8. Copy the registration token and run the setup script on your vitual machine.
+    9. To create virtual machine, go to aws, open ports in your security group and create a virtual machine under instances > launch an instamce. 
+    10. Select and configure the instance details.
+    11. Copy the public IP address from the created instance, and add it into the MobuXStream to connect with the created virtual machine & instance created.
+    12. Once the connection is established, run the setup script on the virtual machine to register the runner.
+    
+    Follow the instructions to set up and register the runner with your GitHub repository.
+
+    Example configuration for a self-hosted runner:
+    ```yaml
+    name: My Self-Hosted Runner
+
+    on:
+      push:
+        branches:
+          - main
+      pull_request:
+        branches:
+          - main
