@@ -1,0 +1,70 @@
+Frontend Development Learning Path (Step by Step):
+
+Phase 1: Core JavaScript
+- JS (JavaScript Fundamentals)
+
+Phase 2: Styling & UI
+- TailwindCSS (Utility-first CSS Framework)
+
+Phase 3: Frontend Framework
+- React (Component-based Library)
+
+Phase 4: State Management
+- Redux (Predictable State Container)
+
+Phase 5: Type Safety
+- TS (TypeScript - Typed JavaScript)
+
+Phase 6: Full-Stack Framework
+- Next (React-based Full-Stack Framework)
+
+Phase 7: Desktop Applications
+- Electron.js (Cross-platform Desktop Apps)
+
+DevOps Learning Path (Step by Step):
+
+Phase 1: Foundation
+- Linux/Unix fundamentals
+- Command Line proficiency
+- Git & Version Control
+- Networking basics
+
+Phase 2: Infrastructure & Configuration
+- Docker (Containerization)
+- Ansible (Configuration Management)
+- Terraform (Infrastructure as Code)
+- Vagrant (Development Environments)
+
+Phase 3: Cloud Platforms
+- AWS (Amazon Web Services)
+- Azure (Microsoft Cloud)
+- GCP (Google Cloud Platform)
+
+Phase 4: CI/CD Pipeline
+- CI/CD concepts
+- Jenkins (Automation Server)
+- GitHub Actions / GitLab CI
+- SonarQube (Code Quality)
+
+Phase 5: Orchestration
+- Kubernetes (Container Orchestration)
+- Docker Swarm
+- Helm (Kubernetes Package Manager)
+
+Phase 6: Monitoring & Observability
+- Prometheus (Metrics)
+- Grafana (Visualization)
+- ELK Stack (Elasticsearch, Logstash, Kibana)
+- Nagios/Zabbix
+
+Phase 7: Security & Compliance
+- DevSecOps practices
+- Vault (Secrets Management)
+- Security scanning tools
+- Compliance frameworks
+
+Phase 8: Advanced Topics
+- Service Mesh (Istio)
+- Serverless (AWS Lambda, Azure Functions)
+- GitOps (ArgoCD, Flux)
+- Chaos Engineering
