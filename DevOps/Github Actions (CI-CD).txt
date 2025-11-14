@@ -1,3 +1,9 @@
+https://learn.microsoft.com/en-us/azure/?product=popular
+Jenkins - CI/CD: https://youtu.be/361bfIvXMBI?si=5jBJdExPI_6jo-AZ
+Microservices - https://youtu.be/SO3XIJCtmNs?si=y6w_gWLZ1h1VaOWN
+
+------------------------------------------------------------------------------------------------------------------------
+
 ref: https://youtu.be/icZUzgtz_d8?si=B4KX_VvEv9cRwVkV   
 
 GitHub Actions:
@@ -171,3 +177,22 @@ Self-hosted runner:
       pull_request:
         branches:
           - main
+
+1. Setting up lab env
+2. Navigation though linux CLI
+3. Networking between VMs (setting IP address, connectivity, DNS issues etc)
+4. Application and depedencies installations
+5. Database connectivity & working with YAML and JSON files
+6. Applications basic and Web Servers
+
+
+CI/CD:
+
+1. Set up webhooks in the github repo to the AWS instance of Jenkins server
+    - to pull the automatically to the workspace on certain git actions (push / pull request merge)
+    - will be automatically updating the workspace of jenkins using webhooks 
+
+2. SonarQube - Check and validate the code base 
+    - Security, code quality, code analysis
+
+3. Docker - Deployment of code by containerization
